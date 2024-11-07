@@ -10,6 +10,23 @@ public class SkrivBlogg {
 
 	public static boolean skriv(Blogg samling, String mappe, String filnavn) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
+		
+		PrintWriter skriver = null;
+		boolean ok = false;
+		try {
+			skriver = new PrintWriter(mappe + filnavn);
+			String tekst = samling.toString();
+			skriver.println(tekst);
+		}
+		catch (FileNotFoundException e){
+			ok = false;
+		}
+		finally {
+			if (skriver != null)
+				skriver.close();
+			ok = true;
+		}
+		return ok;
 	}
 }
