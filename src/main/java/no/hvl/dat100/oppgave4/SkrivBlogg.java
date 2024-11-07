@@ -13,7 +13,7 @@ public class SkrivBlogg {
 		//throw new UnsupportedOperationException(TODO.method());
 		
 		PrintWriter skriver = null;
-		boolean ok = false;
+		boolean ok = true;
 		try {
 			skriver = new PrintWriter(mappe + filnavn);
 			String tekst = samling.toString();
@@ -25,7 +25,6 @@ public class SkrivBlogg {
 		finally {
 			if (skriver != null)
 				skriver.close();
-			ok = true;
 		}
 		return ok;
 	}
