@@ -6,14 +6,14 @@ import no.hvl.dat100.oppgave1.*;
 public class Blogg {
 	
 	private Innlegg[] Innleggtabell;
-	private int nesteledige;
+	private int nesteledig;
 	
 
 	// TODO: objektvariable 
 
 	public Blogg() {
 		this.Innleggtabell = new Innlegg[20];
-		this.nesteledige = 0;
+		this.nesteledig = 0;
 		
 		
 		//throw new UnsupportedOperationException(TODO.constructor("Blogg"));
@@ -21,12 +21,12 @@ public class Blogg {
 
 	public Blogg(int lengde) {
 		this.Innleggtabell = new Innlegg[lengde];
-		this.nesteledige = 0;
+		this.nesteledig = 0;
 		//throw new UnsupportedOperationException(TODO.constructor("Blogg"));
 	}
 
 	public int getAntall() {
-		return nesteledige;
+		return nesteledig;
 		//throw new UnsupportedOperationException(TODO.method());
 	}
 	
@@ -37,9 +37,9 @@ public class Blogg {
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
-		for (int i = 0; i < nesteledige;) {
+		for (int i = 0; i < nesteledig; i++) {
             if (Innleggtabell[i].erLik(innlegg)) {
-            }  return i;
+                return i; }
 		}
             return -1;
 
@@ -52,15 +52,15 @@ public class Blogg {
 	}
 
 	public boolean ledigPlass() {
-		return nesteledige < Innleggtabell.length;
+		return nesteledig < Innleggtabell.length;
 		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
 		 if (!finnes(innlegg) && ledigPlass()) {
-	            Innleggtabell[nesteledige] = innlegg;
-	            nesteledige++;
+	            Innleggtabell[nesteledig] = innlegg;
+	            nesteledig++;
 	            return true;
 	            }
 		 return false;
@@ -71,8 +71,8 @@ public class Blogg {
 	
 	public String toString() {
 		 StringBuilder sb = new StringBuilder();
-	        sb.append(nesteledige).append("\n");
-	        for (int i = 0; i < nesteledige; i++) {
+	        sb.append(nesteledig).append("\n");
+	        for (int i = 0; i < nesteledig; i++) {
 	            sb.append(Innleggtabell[i].toString());
 	        }
 	        return sb.toString();
