@@ -4,29 +4,47 @@ import no.hvl.dat100.common.TODO;
 import no.hvl.dat100.oppgave1.*;
 
 public class Blogg {
+	
+	private Innlegg[] Innleggtabell;
+	private int nesteledige;
+	
 
 	// TODO: objektvariable 
 
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		this.Innleggtabell = new Innlegg[20];
+		this.nesteledige = 0;
+		
+		
+		//throw new UnsupportedOperationException(TODO.constructor("Blogg"));
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		this.Innleggtabell = new Innlegg[lengde];
+		this.nesteledige = 0;
+		//throw new UnsupportedOperationException(TODO.constructor("Blogg"));
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		return nesteledige;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
+		return Innleggtabell;
+		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
+		for (int i = 0; i < nesteledige; i++) {
+            if (Innleggtabell[i].erLik(innlegg)) {
+                return i;
+		}
+            
+            return -1;
 
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 
 	public boolean finnes(Innlegg innlegg) {
