@@ -37,32 +37,46 @@ public class Blogg {
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
-		for (int i = 0; i < nesteledige; i++) {
+		for (int i = 0; i < nesteledige;) {
             if (Innleggtabell[i].erLik(innlegg)) {
-                return i;
+            }  return i;
 		}
-            
             return -1;
 
-		//throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method())
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		return finnInnlegg(innlegg) != -1;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
+		return nesteledige < Innleggtabell.length;
+		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
+		 if (!finnes(innlegg) && ledigPlass()) {
+	            Innleggtabell[nesteledige] = innlegg;
+	            nesteledige++;
+	            return true;
+	            }
+		 return false;
 
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 	
+	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		 StringBuilder sb = new StringBuilder();
+	        sb.append(nesteledige).append("\n");
+	        for (int i = 0; i < nesteledige; i++) {
+	            sb.append(Innleggtabell[i].toString());
+	        }
+	        return sb.toString();
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 
 	// valgfrie oppgaver nedenfor
