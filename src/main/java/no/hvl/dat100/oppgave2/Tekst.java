@@ -9,11 +9,6 @@ public class Tekst extends Innlegg {
 
 	// TODO: objektvariable 
 	
-public Tekst () {
-		
-		
-	}
-	
 	public Tekst(int id, String bruker, String dato, String tekst) {
 		
 		super(id, bruker, dato);
